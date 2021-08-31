@@ -8,6 +8,8 @@
 
 .App button{
   height: fit-content;
+  width: fit-content;
+  margin: 0.5rem;
 }
 
 .App .cylinder{

@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { updateArrAsync, updateArr, updateAlgorithm } from './redux/actions';
+import initialState from './redux/state';
 import './App.css';
 
 function* bubbleSort(arr) {
@@ -15,28 +18,32 @@ function* bubbleSort(arr) {
   }
 }
 
-export default class App extends Component {
-  state = {
-    arr: [1, 3, 5, 2, 6, 10, 7, 5, 9],
-    delay: 1// second
+
+class App extends Component {
+  componentDidMount(){
+    this.props.updateArr(initialState.arr)  
   }
 
   startSort = () => {
-    const { arr } = this.state
+    const { arr } = this.props
+    const processArr = []// 排序结果的中间数组
     const arrGen = bubbleSort(arr)
     let newArr = [...arr]
     while (newArr) {
-      this.setState({arr: newArr})
+      processArr.push(newArr)
       newArr = arrGen.next().value
     }
+    processArr.forEach(array=>this.props.updateArrAsync(array, 1000))
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className="App">
         <button onClick={this.startSort}>▶</button>
+        <button onClick={()=>this.props.updateArr(initialState.arr)}>reset</button>
         {
-          this.state.arr.map((item, index) => (
+          this.props.arr.map((item, index) => (
             <div className='cylinder' style={{ top: `${20 - item}rem`, height: `${item}rem` }} key={index}>
               {item}
             </div>
@@ -46,3 +53,15 @@ export default class App extends Component {
     )
   }
 }
+
+export default connect(
+  state=>({
+    arr: state.arr,
+    algorithm: state.algorithm
+  }),
+  {
+    updateArrAsync,
+    updateArr,
+    updateAlgorithm
+  }
+)(App)

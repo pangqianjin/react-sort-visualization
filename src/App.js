@@ -25,15 +25,23 @@ export default class App extends Component {
     const { arr } = this.state
     const arrGen = bubbleSort(arr)
     let newArr = [...arr]
-    while (newArr) {
-      this.setState({arr: newArr})
-      newArr = arrGen.next().value
+
+    this.timer = setInterval(()=>{
+      if(newArr){
+        this.setState({arr: newArr})
+        newArr=arrGen.next().value
+      }
+    }, this.state.delay*1000)
+
+    if(!newArr){
+      clearInterval(this.timer)
     }
   }
 
   render() {
     return (
       <div className="App">
+        <button onClick={this.startSort}>▶</button>
         <button onClick={this.startSort}>▶</button>
         {
           this.state.arr.map((item, index) => (

@@ -1,13 +1,19 @@
 .App {
   text-align: center;
   display: flex;
-  justify-content: center;
   height: 20rem;
   background-color: black;
 }
 
 .App button{
   height: fit-content;
+  width: fit-content;
+  margin: 0.5rem;
+}
+
+.App select{
+  height: fit-content;
+  margin: 0.5rem;
 }
 
 .App .cylinder{

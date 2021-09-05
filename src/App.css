@@ -19,7 +19,6 @@
 .App .cylinder{
   width: 2rem;
   position: relative;
-  background-color: #D35400;
   margin: 0 0.5rem;
   color: white;
 }

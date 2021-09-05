@@ -4,6 +4,7 @@ import { updateArrAction, updateAlgorithmAction, updateDelayAction, BUBBLE_SORT,
 import initialState from './redux/state';
 import './App.css';
 import sortTypesFunc from './utils';
+import colorUtil from './utils/colorUtil'
 
 
 class App extends Component {
@@ -66,9 +67,9 @@ class App extends Component {
           {!this.state.newArr? '排序完成！': ''}
         </span>
         {
-          this.props.arr.map((item, index) => (
-            <div className='cylinder' style={{ top: `${20 - item}rem`, height: `${item}rem` }} key={index}>
-              {item}
+          this.props.arr.map((value, index) => (
+            <div className='cylinder' style={{ top: `${20 - value}rem`, height: `${value}rem`, backgroundColor: colorUtil[`${value}`] }} key={index}>
+              {value}
             </div>
           ))
         }

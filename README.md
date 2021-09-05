@@ -19,21 +19,11 @@ You will also see any lint errors in the console.
 #### 介绍
 react实现一下各种排序算法的可视化
 
-#### 软件架构
-软件架构说明
+#### 一些截图
 
+![](./src/assets/1.png)
 
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
+![](./src/assets/2.png)
 
 #### 参与贡献
 
@@ -42,13 +32,13 @@ react实现一下各种排序算法的可视化
 3.  提交代码
 4.  新建 Pull Request
 
+#### 存在的问题
 
-#### 特技
+目前只写了几个排序算法：
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
->>>>>>> f7096217a85d34cfb5053733522f06214981fafb
+- 冒泡排序
+- 插入排序
+- 选择排序
+- 希尔排序
+
+由于排序函数中，我使用了function*，所以归并排序和快速排序这两个使用递归实现的算法，我没办法使用yield返回中间结果。但是排序的算法写好了，只是注释掉了，欢迎有能力的大佬帮我解决这个问题😁
